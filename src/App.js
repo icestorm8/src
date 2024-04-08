@@ -6,9 +6,7 @@ import Task3 from "./components/Task3";
 function App() {
   return (
     <div className="container">
-      {/* <Task1 /> */}
-      {/* <Task2 /> */}
-      {/* <Task3 /> */}
+     
     </div>
   );
 }
