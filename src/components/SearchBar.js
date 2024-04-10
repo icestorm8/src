@@ -1,8 +1,28 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const search = () => {
+    if (query.length === 4) {
+      if (!isNaN(parseInt(query))) {
+        navigate(`/games?year=${query}`);
+      } else {
+        alert("input isn't a year (not a number)");
+      }
+    } else {
+      alert("input isn't a year (to long)");
+      setQuery("");
+    }
+  };
+
+  useEffect(() => {
+    if (query.length === 0) {
+      navigate(`/games`);
+    }
+  }, [query]);
 
   return (
     <div>
@@ -12,9 +32,10 @@ export default function SearchBar() {
           setQuery(e.currentTarget.value);
         }}
       />
-      <Link to={`/games?year=${query}`} className="btn btn-primary">
+      {/* <Link to={`/games?year=${query}`} className="btn btn-primary">
         Search
-      </Link>
+      </Link> */}
+      <button onClick={search}>Search Year</button>
     </div>
   );
 }
