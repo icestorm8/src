@@ -6,6 +6,7 @@ export default function Games() {
   const [games_ar, setGames_Ar] = useState([]);
   const [query] = useSearchParams();
   const [filterdGames_ar, setFilteredGames_ar] = useState([]);
+
   useEffect(() => {
     doApi();
   }, []);
@@ -43,7 +44,7 @@ export default function Games() {
     <div className="">
       {/* ?year= */}
       <h1>Games</h1>
-      <SearchBar />
+      <SearchBar className="" />
       {query.get("year") && <h2>Year: {query.get("year")} </h2>}
       {filterdGames_ar.length > 0 ? (
         <div className="d-flex align-content-stretch justify-content-center flex-wrap gap-2 p-3">

@@ -25,8 +25,9 @@ export default function SearchBar() {
   }, [query]);
 
   return (
-    <div>
+    <div className="input-group">
       <input
+        className="form-control"
         type="text"
         onChange={(e) => {
           setQuery(e.currentTarget.value);
@@ -35,7 +36,9 @@ export default function SearchBar() {
       {/* <Link to={`/games?year=${query}`} className="btn btn-primary">
         Search
       </Link> */}
-      <button onClick={search}>Search Year</button>
+      <button onClick={search} className="btn btn-primary ">
+        Search Year
+      </button>
     </div>
   );
 }
