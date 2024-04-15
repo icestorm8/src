@@ -13,7 +13,7 @@ export default function SearchBar() {
         alert("input isn't a year (not a number)");
       }
     } else {
-      alert("input isn't a year (to long)");
+      alert("input isn't a year (not the right length (should be 4 numbers))");
       setQuery("");
     }
   };
@@ -25,20 +25,22 @@ export default function SearchBar() {
   }, [query]);
 
   return (
-    <div className="input-group">
-      <input
-        className="form-control"
-        type="text"
-        onChange={(e) => {
-          setQuery(e.currentTarget.value);
-        }}
-      />
-      {/* <Link to={`/games?year=${query}`} className="btn btn-primary">
+    <div className="container" style={{ width: "35%" }}>
+      <div className="input-group ">
+        <input
+          className="form-control"
+          type="text"
+          onChange={(e) => {
+            setQuery(e.currentTarget.value);
+          }}
+        />
+        {/* <Link to={`/games?year=${query}`} className="btn btn-primary">
         Search
       </Link> */}
-      <button onClick={search} className="btn btn-primary ">
-        Search Year
-      </button>
+        <button onClick={search} className="btn btn-primary ">
+          Search Year
+        </button>
+      </div>
     </div>
   );
 }
